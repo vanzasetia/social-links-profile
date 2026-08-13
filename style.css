@@ -1,0 +1,260 @@
+@font-face {
+  font-family: "Inter";
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/inter.woff2") format("woff2");
+}
+
+:root {
+  --green: hsl(75, 94%, 57%);
+  --white: hsl(0, 0%, 100%);
+  --grey-700: hsl(0, 0%, 20%);
+  --grey-800: hsl(0, 0%, 12%);
+  --grey-900: hsl(0, 0%, 8%);
+  --global-color-focus-ring: var(--white);
+  --global-style-focus-ring: solid;
+  --global-width-focus-ring: 3px;
+  --global-offset-focus-ring: 0.2lh;
+}
+
+/* SRC: https://github.com/csstools/sanitize.css/blob/main/reduce-motion.css */
+/*
+ * 1. Remove animations when motion is reduced (opinionated).
+ * 2. Remove fixed background attachments when motion is reduced (opinionated).
+ * 3. Remove timed scrolling behaviors when motion is reduced (opinionated).
+ * 4. Remove transitions when motion is reduced (opinionated).
+ * 5. Remove view-transitions when motion is reduced (opinionated).
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important; /* 1 */
+    animation-duration: 1ms !important; /* 1 */
+    animation-iteration-count: 1 !important; /* 1 */
+    background-attachment: initial !important; /* 2 */
+    scroll-behavior: auto !important; /* 3 */
+    transition-delay: 0s !important; /* 4 */
+    transition-duration: 0s !important; /* 4 */
+  }
+
+  @view-transition {
+    navigation: none !important; /* 5 */
+  }
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+:focus {
+  outline-color: var(--color-focus-ring, var(--global-color-focus-ring));
+  outline-style: var(--style-focus-ring, var(--global-style-focus-ring));
+  outline-width: var(--width-focus-ring, var(--global-width-focus-ring));
+  outline-offset: var(--offset-focus-ring, var(--global-offset-focus-ring));
+}
+
+@supports selector(: focus-visible) {
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline-color: var(--color-focus-ring, var(--global-color-focus-ring));
+    outline-style: var(--style-focus-ring, var(--global-style-focus-ring));
+    outline-width: var(--width-focus-ring, var(--global-width-focus-ring));
+    outline-offset: var(--offset-focus-ring, var(--global-offset-focus-ring));
+  }
+}
+
+@supports (-moz-appearance: none) {
+  :root {
+    --offset-focus-ring: 0.2ex;
+  }
+}
+
+body {
+  background-color: var(--grey-900);
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 2rem 0.5rem;
+}
+
+/* Allow the card to be resizeable horizontally */
+main {
+  width: 100%;
+}
+
+h1 {
+  margin-block-start: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: 1.7em;
+}
+
+h1 + p {
+  margin-block-start: 0.5rem;
+}
+
+.flow-space > * + * {
+  margin-block-start: var(--flow-space, 1.5rem);
+}
+
+.social .container {
+  max-width: 24rem;
+  margin-inline: auto;
+}
+
+.social .container[data-container-type="inner"] {
+  background-color: var(--grey-800);
+  color: var(--white);
+  padding-inline: 2.3rem;
+  padding-block: 2rem;
+  border-radius: 1em;
+  text-align: center;
+}
+
+.social__picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social__picture img {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+}
+
+.social h1 + .social__location {
+  margin-block-start: 0.5rem;
+}
+
+.social__location strong {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.social__links {
+  --flow-space: 1rem;
+  padding: 0;
+  margin-block-start: 1.5rem;
+  margin-block-end: 0;
+}
+
+.social__links a {
+  display: block;
+  width: 100%;
+  background-color: var(--grey-700);
+  color: var(--white);
+  text-decoration-color: transparent;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5em;
+  transition:
+    background-color 75ms ease-in-out,
+    color 75ms ease-in-out;
+}
+
+.social__links a:hover {
+  background-color: var(--green);
+  color: var(--grey-900);
+}
+
+footer {
+  margin-block-start: 2rem;
+}
