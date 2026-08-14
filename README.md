@@ -84,4 +84,4 @@ To keep this simple, use the `rem` unit most of the time and avoid using the `px
 
 ## License
 
-This project is for the use of anyone anywhere in most parts of the world at no cost and with almost no restrictions whatsoever, except the Inter font family. You may copy it, give it away or re-use it under the terms of the [Unlicense](./COPYING).
+This project is for the use of anyone anywhere in most parts of the world at no cost and with almost no restrictions whatsoever, except the Inter font family and the Frontend Mentor assets. You may copy it, give it away or re-use it under the terms of the [Unlicense](./COPYING).
