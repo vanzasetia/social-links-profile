@@ -72,7 +72,7 @@ To keep this simple, use the `rem` unit most of the time and avoid using the `px
 
 ## Links
 
-- Solution URL:
+- Solution URL: https://www.frontendmentor.io/solutions/responsive-social-links-profile-without-media-queries-NTfC7ltXOk
 - Live Site URL: https://officialjessica.netlify.app/
 
 ## Built with
